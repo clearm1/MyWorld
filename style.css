@@ -1,0 +1,193 @@
+body {
+  background-color: var(--body-background);
+  color: var(--body-text-colour);
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 3rem;
+  height: 80px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.nav-items {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-items > a {
+  color: var(--nav-items-colour);
+  text-decoration: none;
+  padding-bottom: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.nav-items > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background-color: var(--nav-items-active);
+  transition: width 0.3s ease;
+}
+
+.nav-items > a:hover::after,
+.nav-items .active::after {
+  width: 100%;
+}
+
+.burger {
+  display: none;
+  font-size: 24px;
+  color: var(--burger-colour);
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  flex: 1;
+}
+
+.hero-image {
+  height: 50vh;
+  background-image: url('images/everest_index.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
+.hero-image1 {
+  height: 50vh;
+  background-image: url('images/everest_theotherone.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
+.hero-image2 {
+  height: 50vh;
+  background-image: url('images/everest_wildlife.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--body-text-colour);
+}
+
+.fact-holder,
+.fact-holder-wildlife {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 1rem;
+}
+
+.fact-card {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.fact-card:hover {
+  transform: scale(1.02);
+}
+
+.fact {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fact-text-colour);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+  text-align: center;
+}
+
+.fact-card:hover .fact {
+  opacity: 1;
+}
+
+.sun { background-image: url("images/antarctic-sun.jpg"); }
+.discovery { background-image: url("images/aerial-antarctica.jpeg"); }
+.explorers { background-image: url("images/explorers.jpg"); }
+.ownership { background-image: url("images/world_flags.png"); }
+.research { background-image: url("images/research.jpg"); }
+.penguins { background-image: url("images/yak.jpg"); }
+.krill { background-image: url("images/redpanda.jpg"); }
+.seals { background-image: url("images/Snowleopard.JPG"); }
+.orcas { background-image: url("images/tapir.jpg"); }
+.minke-whale { background-image: url("images/wildlife-minke-whale.jpg"); }
+.albatross { background-image: url("images/wildlife-albatross.jpg"); }
+.gentoo-penguin { background-image: url("images/wildlife-gentoo-penguin.jpg"); }
+.temperature { background-image: url("images/climate-snow.jpg"); }
+.sunburn { background-image: url("images/climate-sun.jpg"); }
+.ice { background-image: url("images/climate-ice.jpg"); }
+.rainfall { background-image: url("images/climate-rain.jpg"); }
+.black {background-image: url("images/black.png");}
+
+@media screen and (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-items {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    background-color: var(--nav-colour);
+    padding-top: 20px;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .fact-holder,
+  .fact-holder-wildlife {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    height: 35vh;
+  }
+}
